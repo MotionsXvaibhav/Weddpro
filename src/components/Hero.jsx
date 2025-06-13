@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-export default function HeroWithSearch() {
+export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideInterval = useRef();
 
