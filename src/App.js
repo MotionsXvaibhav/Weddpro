@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, Navigate } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
+import Home from "./pages/Home";
+import Booking from "./pages/Booking";
+import About from "./pages/About";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* Sidebar always visible */}
+      <Sidebar />
+      <ScrollToTop />
+       <Toaster position="top-center" />
+      {/* Routes to switch page content */}
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" replace />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/booking" element={<Booking />} />
+        <Route path="/about" element={<About />} />
+        {/* Add more routes here as needed */}
+         
+      </Routes>
+      <Footer />
+    </>
   );
 }
 
